@@ -8,10 +8,10 @@ services:
       - key: PORT
         value: 8085
       - key: DB_URL
-        sync: false
+        value: jdbc:h2:mem:skillsphere;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
       - key: DB_USERNAME
-        sync: false
+        value: sa
       - key: DB_PASSWORD
-        sync: false
+        value: password
       - key: DB_DRIVER
-        value: com.mysql.cj.jdbc.Driver
+        value: org.h2.Driver
