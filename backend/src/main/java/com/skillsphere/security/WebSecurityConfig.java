@@ -70,6 +70,7 @@ public class WebSecurityConfig {
         http.cors(cors ->
                 cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
+            .headers(headers -> headers.frameOptions(frame -> frame.disable())) // needed for H2 console iframe
             .exceptionHandling(exception ->
                     exception.authenticationEntryPoint(
                             unauthorizedHandler))
@@ -80,6 +81,8 @@ public class WebSecurityConfig {
                     auth.requestMatchers("/api/auth/**")
                             .permitAll()
                         .requestMatchers("/api/public/**")
+                            .permitAll()
+                        .requestMatchers("/h2-console/**") // LOCAL ONLY — remove before prod
                             .permitAll()
                         .anyRequest()
                             .authenticated()
