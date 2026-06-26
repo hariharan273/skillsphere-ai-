@@ -34,10 +34,12 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-        cache: 'npm'
-        cache-dependency-path: ./frontend/package-lock.json
-    - run: npm ci
-    - run: npm run build --if-present
+    - name: Install dependencies
+      run: npm install --legacy-peer-deps
+    - name: Build frontend
+      run: npm run build
+      env:
+        VITE_API_URL: https://skillsphere-ai-h3xd.onrender.com/api
 
   docker-build-push:
     needs: [build-and-test-backend, build-and-test-frontend]
