@@ -1,0 +1,53 @@
+Hariharan
+Data Scientist
+Email: hariharan.ds@example.com
+Phone: +91 9500858569
+Location: Chennai, India
+LinkedIn: https://linkedin.com/in/hariharan-ds
+GitHub: https://github.com/hariharan-data
+
+SUMMARY
+Highly analytical and results-driven Data Scientist with experience in building predictive models, analyzing large datasets, and delivering actionable business insights. Proficient in statistical modeling, machine learning, and deep learning architectures.
+
+SKILLS
+• Languages & Tools: Python, R, SQL, Spark
+• Libraries & Frameworks: Pandas, NumPy, TensorFlow, Scikit-learn
+• Core Competencies: Machine Learning, Deep Learning, Data Wrangling, Statistical Analysis, Data Visualization
+
+EXPERIENCE
+Data Scientist | TechSphere Solutions, Chennai
+Jan 2023 - Present
+• Designed and deployed scalable Machine Learning pipelines to predict customer churn, achieving an 85% retention rate.
+• Utilized Python and Pandas for advanced data preprocessing on datasets with over 5 million rows.
+• Built and fine-tuned Deep Learning models using TensorFlow to improve image classification accuracy by 12%.
+
+Junior Data Analyst | Insightful Analytics
+Jun 2021 - Dec 2022
+• Queried and aggregated complex datasets using SQL to generate weekly performance reports.
+• Assisted in developing predictive models in R for sales forecasting.
+• Used NumPy and Pandas to automate data cleaning workflows, reducing manual effort by 40%.
+
+PROJECTS
+Predictive Customer Churn Model
+• Developed an end-to-end Machine Learning pipeline using Python, Pandas, and Scikit-learn to identify at-risk customers.
+• Deployed the model on AWS, integrating it with the company's CRM dashboard.
+• Links: https://github.com/hariharan-data/churn-prediction
+
+Real-time Fraud Detection Engine
+• Processed streaming transaction data using Spark and Kafka to identify fraudulent activities in real-time.
+• Built a Deep Learning autoencoder in TensorFlow to flag anomalies, reducing false positives by 20%.
+• Technologies: Python, Spark, TensorFlow, SQL
+• Links: https://github.com/hariharan-data/fraud-engine
+
+Sentiment Analysis of Financial News
+• Scraped financial news articles and applied Natural Language Processing techniques to predict stock market trends.
+• Used Python, NumPy, and Deep Learning techniques to achieve a 78% directional accuracy.
+
+EDUCATION
+Master of Science in Data Science
+Anna University, Chennai
+2019 - 2021
+
+Bachelor of Engineering in Computer Science
+Anna University, Chennai
+2015 - 2019
