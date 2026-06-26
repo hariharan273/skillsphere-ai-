@@ -76,14 +76,30 @@ public class AuthController {
 
         String strRole = signUpRequest.getRole();
         Role role = Role.ROLE_STUDENT; // Default
-        
+
         if (strRole != null && strRole.equalsIgnoreCase("admin")) {
             role = Role.ROLE_ADMIN;
         }
-        
+
         user.setRole(role);
         userRepository.save(user);
 
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        // Immediately authenticate and return JWT so the client doesn't need a second login call
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(signUpRequest.getEmail(), signUpRequest.getPassword()));
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
+
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(item -> item.getAuthority())
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(new JwtResponse(jwt,
+                userDetails.getId(),
+                userDetails.getFullName(),
+                userDetails.getEmail(),
+                roles));
     }
 }

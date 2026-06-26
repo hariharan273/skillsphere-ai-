@@ -59,7 +59,8 @@ public class WebSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        // Strength 8 = ~25-50ms per hash (default 10 = ~100-300ms). Still secure.
+        return new BCryptPasswordEncoder(8);
     }
 
     @Bean

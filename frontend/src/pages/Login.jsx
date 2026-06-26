@@ -20,24 +20,19 @@ const Login = ({ setIsAuthenticated }) => {
     setError('');
 
     try {
+      let res;
       if (isLogin) {
-        const res = await login(form.email, form.password);
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify({
-          id: res.data.id,
-          fullName: res.data.fullName,
-          email: res.data.email,
-        }));
+        res = await login(form.email, form.password);
       } else {
-        await register(form.fullName, form.email, form.password);
-        const res = await login(form.email, form.password);
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify({
-          id: res.data.id,
-          fullName: res.data.fullName,
-          email: res.data.email,
-        }));
+        // /register now returns a JWT directly — no need for a second login call
+        res = await register(form.fullName, form.email, form.password);
       }
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('user', JSON.stringify({
+        id: res.data.id,
+        fullName: res.data.fullName,
+        email: res.data.email,
+      }));
       setIsAuthenticated(true);
       navigate('/dashboard');
     } catch (err) {
