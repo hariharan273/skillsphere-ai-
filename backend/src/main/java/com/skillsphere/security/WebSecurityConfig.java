@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -78,11 +79,11 @@ public class WebSecurityConfig {
                     session.sessionCreationPolicy(
                             SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth ->
-                    auth.requestMatchers("/api/auth/**")
+                    auth.requestMatchers(new AntPathRequestMatcher("/api/auth/**"))
                             .permitAll()
-                        .requestMatchers("/api/public/**")
+                        .requestMatchers(new AntPathRequestMatcher("/api/public/**"))
                             .permitAll()
-                        .requestMatchers("/h2-console/**") // LOCAL ONLY — remove before prod
+                        .requestMatchers(new AntPathRequestMatcher("/h2-console/**"))
                             .permitAll()
                         .anyRequest()
                             .authenticated()
